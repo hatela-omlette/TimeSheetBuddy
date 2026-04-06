@@ -1,0 +1,94 @@
+<!--
+
+Copyright (C) 2023 Jackson N.
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <https://www.gnu.org/licenses/>.   
+
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TimeSheetBuddy</title>
+  <link rel="stylesheet" href="./styles/flatpickr.min.css">
+  <link rel="stylesheet" href="./styles/flatpickr_theme_airbnb.min.css">
+  <link rel="stylesheet" href="./styles/flatpickr_plugin_monthselect.min.css">
+  <link rel="stylesheet" href="styles/style.css">
+</head>
+
+<body>
+  <div class="container">
+    <div class="header padding">
+      TimeSheetBuddy
+    </div>
+    <div class="content">
+      <div class="playground">
+        <div class="left-panel">
+          <div class="wrapper padding">
+            <h3>Step 1. Select month</h3>
+            <div id="monthPicker"></div>
+          </div>
+          <div class="wrapper date-picker padding">
+            <h3>Step 2. Default Work Days</h3>
+            <p class="hint">
+              You can aso select other days below you might have worked on other than regular work days.
+            </p>
+            <p class="hint">
+              By default all work days are considered to be of 8 worked hours, Incase you need to add any custom work
+              hours, please select those dates below and add their corresponding custom hours in the special work days section.
+            </p>
+            <div id="datePicker"></div>
+          </div>
+        </div>
+        <div class="right-section">
+          <div class="special-work-hrs padding">
+            <h3>Step 3. Special Work Days</h3>
+            <p class="hint">Select the days from below drop down for which you wish to add custom hours.</p>
+            <select class="dropdown" name="specialWorkedDays" id="specialWorkedDays" onchange="onSpecialWorkedDaySelected()">
+            </select>
+            <div class="special-workday-list" id="specialWorkDayList">
+            </div>
+          </div>
+          <div class="download-section padding">
+            <h3>Step 4. Download Timesheet</h3>
+            <p class="hint">
+              <span style="color: red;">
+                !!! IMPORTANT !!!<br>
+                Always manually cross verify all calculations done by the app, <br>
+                Always manually cross verify all currency amounts calculated by the app, <br><br>
+                DO NOT TRUST IT BLINDLY !!!. <br>
+              </span>
+            </p>
+            <button class="button" onclick="downloadExcel()">
+              Download
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="./scripts/exceljs.min.js"></script>
+  <script src="./scripts/FileSaver.min.js"></script>  
+  <script src="./scripts/flatpickr.js"></script>
+  <script src="./scripts/flatpickr_plugin_monthselect.js"></script>
+  <script src="./scripts/moment.js"></script>
+  <script src="./scripts/config.js"></script>
+  <script src="./scripts/excel_export.js"></script>
+  <script src="./scripts/app.js"></script>
+</body>
+
+</html>
